@@ -23,7 +23,7 @@ def apply_compression_limiting(input_folder, output_folder, threshold=-20.0, rat
 
 if __name__ == "__main__":
     # Replace 'input_folder_path' and 'output_folder_path' with your desired paths
-    input_folder_path = "music"
+    input_folder_path = "equalized_music"
     output_folder_path = "compressed_music"
 
     # Adjust the compression and limiting parameters as needed

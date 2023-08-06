@@ -47,7 +47,7 @@ if __name__ == "__main__":
     run_script("compression_limiting.py", equalized_output_folder, compressed_output_folder)
 
     # Step 5: Noise Reduction
-    run_script("noise_reduction.py", compressed_output_folder, noise_reduced_output_folder)
+    run_script("denoise.py", compressed_output_folder, noise_reduced_output_folder)
 
     # Step 6: Reverb Enhancements
     run_script("reverb_enhancements.py", noise_reduced_output_folder, reverb_enhanced_output_folder)
