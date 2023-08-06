@@ -1,6 +1,7 @@
 import os
 import subprocess
 
+
 def run_script(script_path, *args):
     cmd = ["python", script_path] + list(args)
     subprocess.run(cmd, check=True)
@@ -25,6 +26,8 @@ def apply_mastering(input_path, output_path):
 if __name__ == "__main__":
     input_video_folder_path = "videos"
     audio_mp3_output_folder_path = "audio_mp3"
+    demixed_output_folder = "demixed"
+    vocals_output_folder = "vocals"
     normalised_output_folder = "normalized_music"
     equalized_output_folder = "equalized_music"
     compressed_output_folder = "compressed_music"
@@ -36,6 +39,9 @@ if __name__ == "__main__":
 
     # Step 1: Convert MP4 to MP3
     run_script("converter.py", input_video_folder_path, audio_mp3_output_folder_path)
+    
+    # Step 1.5 split vocals
+    run_script("demix.py", audio_mp3_output_folder_path, demixed_output_folder)
 
     # Step 2: Normalization
     run_script("normalize.py", audio_mp3_output_folder_path, normalised_output_folder)

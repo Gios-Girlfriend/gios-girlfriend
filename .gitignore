@@ -1,6 +1,7 @@
 __pycache__
 .env
 venv/
+.venv/
 .vscode
 audio_mp3/
 normalised_music/
@@ -11,3 +12,7 @@ reverb_enhanced_music/
 filtered_music/
 mastered_music/
 stitched_audio.mp3
+demixed/
+vocals/
+accompainment/
+pretrained_models/

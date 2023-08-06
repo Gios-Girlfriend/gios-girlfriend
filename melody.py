@@ -58,7 +58,7 @@ def main():
     for i, segment in enumerate(segments):
         # Shift pitch to match corresponding note
         # We'll use a dummy pitch shifting here, as real pitch shifting would require more complex calculations
-        n_steps = i  # This is a dummy value; replace with real pitch shifting calculation
+        n_steps =  notes[i] - notes[0]
         shifted_segment = librosa.effects.pitch_shift(segment, sr=sr, n_steps=n_steps)
 
         shifted_segments.append(shifted_segment)
