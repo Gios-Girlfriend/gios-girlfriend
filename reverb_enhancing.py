@@ -23,7 +23,7 @@ def apply_reverb_enhancements(input_folder, output_folder, reverb_duration=500, 
 
 if __name__ == "__main__":
     # Replace 'input_folder_path' and 'output_folder_path' with your desired paths
-    input_folder_path = "music"
+    input_folder_path = "compressed_music"
     output_folder_path = "reverb_enhanced_music"
 
     # Adjust the reverb_duration (in milliseconds) and reverb_decay (0.0 to 1.0) parameters
