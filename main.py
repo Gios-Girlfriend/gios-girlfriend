@@ -23,7 +23,8 @@ def apply_mastering(input_path, output_path):
     widened_audio.export(output_path, format="mp3")
 
 if __name__ == "__main__":
-    input_folder_path = "music"
+    input_video_folder_path = "videos"
+    audio_mp3_output_folder_path = "audio_mp3"
     normalised_output_folder = "normalised_music"
     equalized_output_folder = "equalized_music"
     compressed_output_folder = "compressed_music"
@@ -33,25 +34,28 @@ if __name__ == "__main__":
     mastered_output_folder = "mastered_music"
     stitched_output_file = "stitched_audio.mp3"
 
-    # Step 1: Normalization
-    run_script("normalise.py", input_folder_path, normalised_output_folder)
+    # Step 1: Convert MP4 to MP3
+    run_script("convert_to_mp3.py", input_video_folder_path, audio_mp3_output_folder_path)
 
-    # Step 2: Equalization
+    # Step 2: Normalization
+    run_script("normalise.py", audio_mp3_output_folder_path, normalised_output_folder)
+
+    # Step 3: Equalization
     run_script("equalize.py", normalised_output_folder, equalized_output_folder)
 
-    # Step 3: Compression and Limiting
+    # Step 4: Compression and Limiting
     run_script("compression_limiting.py", equalized_output_folder, compressed_output_folder)
 
-    # Step 4: Noise Reduction
+    # Step 5: Noise Reduction
     run_script("noise_reduction.py", compressed_output_folder, noise_reduced_output_folder)
 
-    # Step 5: Reverb Enhancements
+    # Step 6: Reverb Enhancements
     run_script("reverb_enhancements.py", noise_reduced_output_folder, reverb_enhanced_output_folder)
 
-    # Step 6: High-Pass and Low-Pass Filtering
+    # Step 7: High-Pass and Low-Pass Filtering
     run_script("high_low_pass_filter.py", reverb_enhanced_output_folder, filtered_output_folder)
 
-    # Step 7: Mastering
+    # Step 8: Mastering
     for filename in os.listdir(filtered_output_folder):
         if filename.lower().endswith('.mp3'):
             input_path = os.path.join(filtered_output_folder, filename)
@@ -59,5 +63,5 @@ if __name__ == "__main__":
 
             apply_mastering(input_path, output_path)
 
-    # Step 8: Stitching
+    # Step 9: Stitching
     run_script("stitch.py", mastered_output_folder, stitched_output_file)
