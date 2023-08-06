@@ -2,6 +2,7 @@ from pydub import AudioSegment
 import os
 
 def apply_compression_limiting(input_folder, output_folder, threshold=-20.0, ratio=4.0, attack=10, release=200):
+    print("Compression limiting")
     # Create the output folder if it doesn't exist
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)
@@ -22,7 +23,7 @@ def apply_compression_limiting(input_folder, output_folder, threshold=-20.0, rat
 
 if __name__ == "__main__":
     # Replace 'input_folder_path' and 'output_folder_path' with your desired paths
-    input_folder_path = "music"
+    input_folder_path = "equalized_music"
     output_folder_path = "compressed_music"
 
     # Adjust the compression and limiting parameters as needed

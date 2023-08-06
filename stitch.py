@@ -2,6 +2,7 @@ from pydub import AudioSegment
 import os
 
 def append_mp3_files(input_folder, output_filename):
+    print("Concatenating")
     # Create an empty AudioSegment to hold the concatenated audio
     concatenated_audio = AudioSegment.empty()
 

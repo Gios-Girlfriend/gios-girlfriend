@@ -4,6 +4,7 @@ import numpy as np
 from pydub import AudioSegment
 
 def apply_noise_reduction(input_folder, output_folder, reduction_strength=0.5):
+    print("Denoise")
     # Create the output folder if it doesn't exist
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)
@@ -35,7 +36,7 @@ def apply_noise_reduction(input_folder, output_folder, reduction_strength=0.5):
 
 if __name__ == "__main__":
     # Replace 'input_folder_path' and 'output_folder_path' with your desired paths
-    input_folder_path = "music"
+    input_folder_path = "compressed_music"
     output_folder_path = "noise_reduced_music"
 
     # Adjust the reduction_strength parameter (0.0 to 1.0) based on the noise level
