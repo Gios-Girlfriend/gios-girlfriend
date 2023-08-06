@@ -3,8 +3,9 @@ import os
 
 def apply_equalization(audio, equalizer_settings):
     for freq, gain in equalizer_settings:
-        band = audio.high_pass_filter(freq) - audio.low_pass_filter(freq)
-        audio = audio.overlay(band + gain)
+        left = audio.pan(-1).high_pass_filter(freq).low_pass_filter(freq) + gain
+        right = audio.pan(1).high_pass_filter(freq).low_pass_filter(freq) + gain
+        audio = left.append(right)
 
     return audio
 
@@ -28,11 +29,11 @@ def equalize_mp3_files(input_folder, output_folder, equalizer_settings):
             equalized_audio.export(output_path, format="mp3")
 
 if __name__ == "__main__":
-    # Define the folder to operate in as 'music'
+    # Define the folder to operate in as 'normalized_music'
     input_folder_path = "normalized_music"
     output_folder_path = "equalized_music"
 
     # Set equalizer settings (Example: boosting 2kHz by 6dB)
-    equalizer_settings = [{"frequency": 2000, "gain": 6.0}]
-    
+    equalizer_settings = [(2000, 6.0)]
+
     equalize_mp3_files(input_folder_path, output_folder_path, equalizer_settings)
