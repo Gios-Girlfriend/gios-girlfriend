@@ -2,6 +2,7 @@ from pydub import AudioSegment
 import os
 
 def apply_reverb_enhancements(input_folder, output_folder, reverb_duration=500, reverb_decay=0.5):
+    print("reverb enhancements")
     # Create the output folder if it doesn't exist
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)

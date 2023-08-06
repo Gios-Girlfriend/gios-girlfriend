@@ -2,6 +2,7 @@ from pydub import AudioSegment
 import os
 
 def apply_high_low_pass_filter(input_folder, output_folder, high_pass_cutoff=1000, low_pass_cutoff=10000):
+    print("Hi Low Pass Filter")
     # Create the output folder if it doesn't exist
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)

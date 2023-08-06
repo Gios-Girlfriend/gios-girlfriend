@@ -4,6 +4,7 @@ import numpy as np
 from pydub import AudioSegment
 
 def apply_noise_reduction(input_folder, output_folder, reduction_strength=0.5):
+    print("Denoise")
     # Create the output folder if it doesn't exist
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)

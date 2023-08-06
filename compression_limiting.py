@@ -2,6 +2,7 @@ from pydub import AudioSegment
 import os
 
 def apply_compression_limiting(input_folder, output_folder, threshold=-20.0, ratio=4.0, attack=10, release=200):
+    print("Compression limiting")
     # Create the output folder if it doesn't exist
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)

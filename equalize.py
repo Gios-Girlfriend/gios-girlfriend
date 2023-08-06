@@ -2,6 +2,7 @@ from pydub import AudioSegment
 import os
 
 def equalize_mp3_files(input_folder, output_folder, equalizer_settings):
+    print("Equalize")
     # Create the output folder if it doesn't exist
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)

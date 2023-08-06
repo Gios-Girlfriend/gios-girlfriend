@@ -2,6 +2,7 @@ import os
 from moviepy.editor import VideoFileClip
 
 def convert_mp4_to_mp3(input_folder, output_folder):
+    print("Convert")
     # Create the output folder if it doesn't exist
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)

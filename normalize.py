@@ -2,6 +2,7 @@ from pydub import AudioSegment
 import os
 
 def normalize_volume(input_folder, output_folder, target_dBFS=-20.0):
+    print("Normalize")
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)
 
