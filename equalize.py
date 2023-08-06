@@ -24,3 +24,13 @@ def equalize_mp3_files(input_folder, output_folder, equalizer_settings):
 
             # Export the equalized audio to the output folder
             equalized_audio.export(output_path, format="mp3")
+
+if __name__ == "__main__":
+    # Define the folder to operate in as 'music'
+    input_folder_path = "nomalized_music"
+    output_folder_path = "equalized_music"
+
+    # Set equalizer settings (Example: boosting 2kHz by 6dB)
+    equalizer_settings = [{"frequency": 2000, "gain": 6.0}]
+    
+    equalize_mp3_files(input_folder_path, output_folder_path, equalizer_settings)
