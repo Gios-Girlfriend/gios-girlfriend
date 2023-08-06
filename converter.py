@@ -25,7 +25,8 @@ def convert_mp4_to_mp3(input_folder, output_folder):
             audio_clip.write_audiofile(output_path)
 
             # Close the video clip to release resources
-            video_clip.close()
+            video_clip.close() 
+    
 
 if __name__ == "__main__":
     # Replace 'input_folder_path' and 'output_folder_path' with your desired paths
