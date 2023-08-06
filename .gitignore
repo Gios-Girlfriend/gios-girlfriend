@@ -2,3 +2,12 @@ __pycache__
 .env
 venv/
 .vscode
+audio_mp3/
+normalised_music/
+equalized_music/
+compressed_music/
+noise_reduced_music/
+reverb_enhanced_music/
+filtered_music/
+mastered_music/
+stitched_audio.mp3
