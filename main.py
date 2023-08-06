@@ -37,6 +37,9 @@ if __name__ == "__main__":
     mastered_output_folder = "mastered_music"
     stitched_output_file = "stitched_audio.mp3"
 
+    # Set equalizer settings (Example: boosting 2kHz by 6dB)
+    equalizer_settings = [(2000, 6.0)]
+
     # Step 1: Convert MP4 to MP3
     run_script("converter.py", input_video_folder_path, audio_mp3_output_folder_path)
     
@@ -62,19 +65,7 @@ if __name__ == "__main__":
     run_script("hi_lo_pass_filter.py", reverb_enhanced_output_folder, filtered_output_folder)
 
     # Step 8: Mastering
-    for filename in os.listdir(filtered_output_folder):
-        if filename.lower().endswith('.mp3'):
-            input_path = os.path.join(filtered_output_folder, filename)
-            output_path = os.path.join(mastered_output_folder, filename)
-
-            # Load the audio file
-            audio = AudioSegment.from_mp3(input_path)
-
-            # Apply mastering to the audio
-            mastered_audio = apply_mastering(audio, equalizer_settings)
-
-            # Export the mastered audio to the output path
-            mastered_audio.export(output_path, format="mp3")
-
+    #
+    
     # Step 9: Stitching
     run_script("stitch.py", mastered_output_folder, stitched_output_file)

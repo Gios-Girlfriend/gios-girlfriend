@@ -26,7 +26,7 @@ def append_mp3_files(input_folder, output_filename):
 
 if __name__ == "__main__":
     # Define the folder to operate in as 'music'
-    input_folder_path = "equalized_music"
+    input_folder_path = "filtered_music"
 
     # Define the output filename for the concatenated audio
     output_filename = "concatenated_audio.mp3"
