@@ -22,14 +22,3 @@ def apply_high_low_pass_filter(input_folder, output_folder, high_pass_cutoff=100
 
             # Export the filtered audio to the output folder
             low_pass_filtered_audio.export(output_path, format="mp3")
-
-if __name__ == "__main__":
-    # Replace 'input_folder_path' and 'output_folder_path' with your desired paths
-    input_folder_path = "music"
-    output_folder_path = "filtered_music"
-
-    # Adjust the high_pass_cutoff (in Hz) and low_pass_cutoff (in Hz) parameters
-    high_pass_cutoff = 1000
-    low_pass_cutoff = 10000
-
-    apply_high_low_pass_filter(input_folder_path, output_folder_path, high_pass_cutoff, low_pass_cutoff)
