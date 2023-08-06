@@ -25,7 +25,7 @@ def apply_mastering(input_path, output_path):
 if __name__ == "__main__":
     input_video_folder_path = "videos"
     audio_mp3_output_folder_path = "audio_mp3"
-    normalised_output_folder = "normalised_music"
+    normalised_output_folder = "normalized_music"
     equalized_output_folder = "equalized_music"
     compressed_output_folder = "compressed_music"
     noise_reduced_output_folder = "noise_reduced_music"
@@ -35,10 +35,10 @@ if __name__ == "__main__":
     stitched_output_file = "stitched_audio.mp3"
 
     # Step 1: Convert MP4 to MP3
-    run_script("convert_to_mp3.py", input_video_folder_path, audio_mp3_output_folder_path)
+    run_script("converter.py", input_video_folder_path, audio_mp3_output_folder_path)
 
     # Step 2: Normalization
-    run_script("normalise.py", audio_mp3_output_folder_path, normalised_output_folder)
+    run_script("normalize.py", audio_mp3_output_folder_path, normalised_output_folder)
 
     # Step 3: Equalization
     run_script("equalize.py", normalised_output_folder, equalized_output_folder)

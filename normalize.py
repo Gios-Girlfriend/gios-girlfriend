@@ -18,10 +18,3 @@ def normalize_volume(input_folder, output_folder, target_dBFS=-20.0):
 
             # Export the normalized audio to the output folder
             normalized_audio.export(output_path, format="mp3")
-
-if __name__ == "__main__":
-    # Define the folder to operate in as 'music'
-    input_folder_path = "audio"
-    output_folder_path = "normalized_audio"
-    
-    normalize_volume(input_folder_path, output_folder_path)
