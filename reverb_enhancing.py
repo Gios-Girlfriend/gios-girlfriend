@@ -27,7 +27,7 @@ if __name__ == "__main__":
     output_folder_path = "reverb_enhanced_music"
 
     # Adjust the reverb_duration (in milliseconds) and reverb_decay (0.0 to 1.0) parameters
-    reverb_duration = 500
+    reverb_duration = 50
     reverb_decay = 1
 
     apply_reverb_enhancements(input_folder_path, output_folder_path, reverb_duration, reverb_decay)
