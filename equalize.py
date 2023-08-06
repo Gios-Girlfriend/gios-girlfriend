@@ -1,8 +1,14 @@
 from pydub import AudioSegment
 import os
 
+def apply_equalization(audio, equalizer_settings):
+    for freq, gain in equalizer_settings:
+        band = audio.high_pass_filter(freq) - audio.low_pass_filter(freq)
+        audio = audio.overlay(band + gain)
+
+    return audio
+
 def equalize_mp3_files(input_folder, output_folder, equalizer_settings):
-    print("Equalize")
     # Create the output folder if it doesn't exist
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)
@@ -16,18 +22,14 @@ def equalize_mp3_files(input_folder, output_folder, equalizer_settings):
             audio = AudioSegment.from_mp3(input_path)
 
             # Apply equalization to the audio
-            equalized_audio = audio._spawn(audio.raw_data, overrides={
-                "frame_rate": audio.frame_rate,
-                "sample_width": audio.sample_width,
-                "channels": audio.channels
-            }).equalize(*equalizer_settings)
+            equalized_audio = apply_equalization(audio, equalizer_settings)
 
             # Export the equalized audio to the output folder
             equalized_audio.export(output_path, format="mp3")
 
 if __name__ == "__main__":
     # Define the folder to operate in as 'music'
-    input_folder_path = "nomalized_music"
+    input_folder_path = "normalized_music"
     output_folder_path = "equalized_music"
 
     # Set equalizer settings (Example: boosting 2kHz by 6dB)
